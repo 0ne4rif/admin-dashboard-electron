@@ -1,0 +1,56 @@
+<div *ngIf="currentUser; else loggedOut" class="content-center">
+  <header class="text-gray-100 bg-gray-900 body-font shadow w-full">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <nav class="flex lg:w-2/5 flex-wrap items-start text-base md:ml-auto">
+        <a class="mr-5 font-medium">Dashboard</a>
+      </nav>
+      <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+
+        <!--<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>-->
+        <a class="text-white cursor-pointer py-2 px-3 rounded-lg" (click)="logout()">
+          Sign Out
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <h2 class="ml-14 font-bold text-2xl m-3">Overview</h2>
+  <!-- component -->
+  <div class="flex flex-row justify-center w-full">
+    <div class="w-2/3 ml-14 mr-6 border border-gray-400 rounded">
+      <app-bar-chart></app-bar-chart>
+    </div>
+    <div class="w-2/3 mr-14 ml-6 border border-gray-400 rounded overflow-scroll">
+      <app-pie-chart></app-pie-chart>
+    </div>
+  </div>
+
+
+  <h2 class="ml-14 font-bold text-2xl m-3">User List</h2>
+  <table class="border-collapse w-11/12 mx-auto mb-6">
+    <thead>
+      <tr>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">#</th>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">First Name</th>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Last Name</th>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">User Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let users of tableUsers; let index = index"
+          class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0"
+          >
+        <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">{{ index }}</td>
+        <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">{{ users.firstName }}</td>
+        <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">{{ users.lastName }}</td>
+        <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">{{ users.username}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
