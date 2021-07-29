@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Getting Started
 git clone https://github.com/0ne4rif/admin-dashboard-electron
 ##
-Run 'npm install && npm run electron'
+Run `npm install && npm run electron`
 
 ## Development server
 
